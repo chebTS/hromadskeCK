@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Громадське Черкаси</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_help">Допомогти проекту</string>
+    <string name="title_activity_help">Допомогти проекту</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="help_text">"
+    У Черкасах вже є своє "Громадське ТБ". І його вже можна підтримувати.
+    \nІ навіть дуже треба. Бо ентузіазму в нас хоч греблю гати.
+    \nА от камер, мікрофонів, штативів, комп'ютерів, столів і стільців бракує. бракує.
+    \nСловом, ви в курсі, що робити!
+    \nНаші реквізити:
+    \nПАТ КБ "Приватбанк" рахунок № 26007051517610
+    \nМФО 354347 ЄДРПОУ 3198315330"</string>
+
+</resources>
