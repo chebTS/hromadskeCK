@@ -61,9 +61,6 @@ public class GetVideosTask extends BaseTask {
     protected void onPostExecute(Boolean result) {
         super.onPostExecute(result);
         if (result){
-            for(Video v:videos){
-                Log.i(TAG," "+v.getTitle());
-            }
             listView.setAdapter(new VideoAdapter(context, R.layout.item_video, videos));
         }else{
             Toast.makeText(context, "Connection trouble" , Toast.LENGTH_LONG).show();
