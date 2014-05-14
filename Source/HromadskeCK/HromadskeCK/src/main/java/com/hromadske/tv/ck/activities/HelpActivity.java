@@ -15,5 +15,4 @@ public class HelpActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
     }
-
 }
