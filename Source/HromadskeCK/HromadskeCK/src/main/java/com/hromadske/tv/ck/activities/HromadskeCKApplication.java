@@ -27,6 +27,9 @@ public class HromadskeCKApplication extends Application {
                 .resetViewBeforeLoading(true)
                 .cacheInMemory(true)
                 .cacheOnDisc(true)
+                .showImageOnLoading(R.drawable.stub)
+                .showImageOnFail(R.drawable.stub)
+                .showImageForEmptyUri(R.drawable.stub)
                 .build();
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
                 .discCacheExtraOptions(480, 800, Bitmap.CompressFormat.PNG, 75, null)
