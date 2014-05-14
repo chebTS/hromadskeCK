@@ -5,9 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.hromadske.tv.ck.R;
+import com.hromadske.tv.ck.adapters.VideoAdapter;
 import com.hromadske.tv.ck.entities.Video;
 
 import static com.hromadske.tv.ck.utils.Constants.*;
@@ -29,9 +32,11 @@ import java.util.ArrayList;
  */
 public class GetVideosTask extends BaseTask {
     private ArrayList<Video> videos;
+    private ListView listView;
     private final String TAG = GetVideosTask.class.getName();
-    public GetVideosTask(Context context, ProgressBar progressBar) {
+    public GetVideosTask(Context context, ProgressBar progressBar, ListView listView) {
         super(context, progressBar);
+        this.listView = listView;
     }
 
     @Override
@@ -59,6 +64,7 @@ public class GetVideosTask extends BaseTask {
             for(Video v:videos){
                 Log.i(TAG," "+v.getTitle());
             }
+            listView.setAdapter(new VideoAdapter(context, R.layout.item_video, videos));
         }else{
             Toast.makeText(context, "Connection trouble" , Toast.LENGTH_LONG).show();
         }

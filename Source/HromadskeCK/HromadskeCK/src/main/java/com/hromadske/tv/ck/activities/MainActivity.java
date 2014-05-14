@@ -5,6 +5,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -12,7 +14,7 @@ import com.hromadske.tv.ck.R;
 import com.hromadske.tv.ck.tasks.GetVideosTask;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
     private ProgressBar progressBar;
     private ListView listView;
 
@@ -22,7 +24,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         listView = (ListView)findViewById(R.id.list);
-        (new GetVideosTask(this, progressBar)).execute();
+        listView.setOnItemClickListener(this);
+        (new GetVideosTask(this, progressBar, listView)).execute();
     }
 
     @Override
@@ -39,5 +42,10 @@ public class MainActivity extends ActionBarActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }
