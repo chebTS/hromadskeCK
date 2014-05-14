@@ -1,6 +1,8 @@
 package com.hromadske.tv.ck.activities;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +13,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.hromadske.tv.ck.R;
+import com.hromadske.tv.ck.entities.Video;
 import com.hromadske.tv.ck.tasks.GetVideosTask;
 
 
@@ -46,6 +49,13 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        String videoId = ((Video)parent.getItemAtPosition(position)).getId();
+        try{
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoId));
+            startActivity(intent);
+        }catch (ActivityNotFoundException ex){
+            Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v="+videoId));
+            startActivity(intent);
+        }
     }
 }
